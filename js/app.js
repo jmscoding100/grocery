@@ -87,10 +87,13 @@ cells.forEach(cell =>{
 
     cell.addEventListener('click', ()=>{
         // console.log('click')
+        const itemDisplay = document.getElementById('itemDisplay')
         for(let obj of data){
             if(obj.item == cell.getAttribute('data-item')){
                 results.item = obj.itemDisplay
                 results.pricePerPound = obj.priceDisplay
+
+                itemDisplay.innerText = results.item
             }
         }
     })
@@ -111,7 +114,6 @@ const setPrice =(w, p)=>{
 }
 
 const displayResults =()=>{
-    const itemDisplay = document.getElementById('itemDisplay')
     const weightDisplay = document.getElementById('weightDisplay')
     const priceDisplay = document.getElementById('priceDisplay')
 
@@ -119,7 +121,6 @@ const displayResults =()=>{
     // results.price = price
     // results.weight = weight
 
-    itemDisplay.innerText = results.item
     weightDisplay.innerText = results.weight
     priceDisplay.innerText = results.price.toFixed(2)
 }
